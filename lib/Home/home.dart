@@ -18,30 +18,21 @@ class GetStartedScreen extends StatelessWidget {
               SizedBox(
                 height: size.height * 0.35, // Responsive animation height
                 child: Lottie.asset(
-                  'assets/lottie/music_ring.json', // Replace with your Lottie file path
+                  'assets/lottie/getStartedLottie.json', // Replace with your Lottie file path
                   fit: BoxFit.contain,
                 ),
               ),
 
-              SizedBox(
-                  height: size.height *
-                      0.04), // Spacing adjusted for responsiveness
-              Text(
-                'Let\'s get started!',
-                style: TextStyle(
-                  fontSize: size.width * 0.07, // Responsive font size
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFFFFCE59),
-                ),
-                textAlign: TextAlign.center,
-              ),
+              // Spacing adjusted for responsiveness
+
               SizedBox(
                   height: size.height *
                       0.08), // Spacing adjusted for responsiveness
               ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFFFFCE59), // Yellow color for button
+                  backgroundColor:
+                      const Color(0xFFFFD640), // Yellow color for button
                   minimumSize: Size(size.width * 0.9,
                       size.height * 0.07), // Responsive button size
                   shape: RoundedRectangleBorder(
@@ -49,7 +40,7 @@ class GetStartedScreen extends StatelessWidget {
                   ),
                 ),
                 child: Text(
-                  'Sign Up',
+                  'Get Started!',
                   style: TextStyle(
                     fontSize: size.width * 0.05, // Responsive text size
                     color: Colors.black,
@@ -57,16 +48,21 @@ class GetStartedScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: size.height * 0.03), // Spacing for the text link
-              GestureDetector(
-                onTap: () {
-                  // Handle log-in tap event
-                },
-                child: Text(
-                  'Already have an account? Log In',
-                  style: TextStyle(
-                    color: Color(0xFFFFCE59),
-                    fontSize: size.width * 0.04, // Responsive font size
-                    decoration: TextDecoration.underline,
+              Center(
+                child: RichText(
+                  text: const TextSpan(
+                    text: 'Don"t have an account? ',
+                    style: TextStyle(color: Colors.black),
+                    children: [
+                      TextSpan(
+                        text: 'Sign Up',
+                        style: TextStyle(
+                          color: Color(0xFFFFD740),
+                          decoration: TextDecoration.underline,
+                          decorationColor: Color(0xFFFFD740),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

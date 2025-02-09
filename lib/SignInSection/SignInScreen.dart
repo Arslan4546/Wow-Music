@@ -57,46 +57,6 @@ class SignupScreen extends StatelessWidget {
                         ),
                         child: TextFormField(
                           decoration: InputDecoration(
-                            labelText: "Full Name",
-                            labelStyle: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.grey[700]),
-                            filled: true,
-                            fillColor: Colors.white,
-                            contentPadding: const EdgeInsets.symmetric(
-                                vertical: 16, horizontal: 20),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide.none,
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide.none,
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              borderSide: const BorderSide(
-                                  color: Color(0xFFFFD740), width: 2),
-                            ),
-                          ),
-                          style: const TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.w500),
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      Container(
-                        decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.1),
-                              blurRadius: 8,
-                              offset: const Offset(2, 4),
-                            ),
-                          ],
-                        ),
-                        child: TextFormField(
-                          decoration: InputDecoration(
                             labelText: "Email Address",
                             labelStyle: TextStyle(
                                 fontSize: 16,
@@ -187,7 +147,7 @@ class SignupScreen extends StatelessWidget {
                           ),
                           onPressed: () {},
                           child: const Text(
-                            "Sign Up",
+                            "Log In",
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.w100),
@@ -225,11 +185,11 @@ class SignupScreen extends StatelessWidget {
                       Center(
                         child: RichText(
                           text: const TextSpan(
-                            text: 'Already have an account? ',
+                            text: "Don't have an account?",
                             style: TextStyle(color: Colors.black),
                             children: [
                               TextSpan(
-                                text: 'Log In',
+                                text: ' Sign Up',
                                 style: TextStyle(
                                   color: Color(0xFFFFD740),
                                   decoration: TextDecoration.underline,
