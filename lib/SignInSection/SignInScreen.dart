@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:wow_music/SignUpSection/SignUpScreen.dart'; // Import the SignUpScreen
 
-class SignupScreen extends StatelessWidget {
-  const SignupScreen({super.key});
+class SignInScreen extends StatefulWidget {
+  const SignInScreen({Key? key}) : super(key: key);
 
+  @override
+  _SignInScreenState createState() => _SignInScreenState();
+}
+
+class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    Color _signUpColor = Color(0xFFFFD740); // Default Sign Up Color
     return Scaffold(
       backgroundColor: const Color(0xFFFFD740),
       body: Stack(
@@ -183,20 +190,43 @@ class SignupScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 24),
                       Center(
-                        child: RichText(
-                          text: const TextSpan(
-                            text: "Don't have an account?",
-                            style: TextStyle(color: Colors.black),
-                            children: [
-                              TextSpan(
-                                text: ' Sign Up',
-                                style: TextStyle(
-                                  color: Color(0xFFFFD740),
-                                  decoration: TextDecoration.underline,
-                                  decorationColor: Color(0xFFFFD740),
-                                ),
+                        child: MouseRegion(
+                          onEnter: (_) => setState(() =>
+                              _signUpColor = Colors.green), // Hover Effect
+                          onExit: (_) => setState(() =>
+                              _signUpColor = Color(0xFFFFD740)), // Normal Color
+
+                          child: GestureDetector(
+                            onTap: () {
+                              setState(() => _signUpColor =
+                                  Colors.red); // Click par Red ho jaye
+
+                              Future.delayed(Duration(milliseconds: 200), () {
+                                // Delay ke baad navigation
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SignupScreen()),
+                                );
+                              });
+                            },
+                            child: RichText(
+                              text: TextSpan(
+                                text: 'Don\'t have an account? ',
+                                style: TextStyle(color: Colors.black),
+                                children: [
+                                  TextSpan(
+                                    text: 'Sign Up',
+                                    style: TextStyle(
+                                      color: _signUpColor,
+                                      decoration: TextDecoration.underline,
+                                      decorationColor: _signUpColor,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ],
+                            ),
                           ),
                         ),
                       ),

@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:wow_music/SignInSection/SignInScreen.dart';
 
-class SignupScreen extends StatelessWidget {
+class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
+
+  @override
+  _SignupScreenState createState() => _SignupScreenState();
+}
+
+class _SignupScreenState extends State<SignupScreen> {
+  Color _signUpColor = Color(0xFFFFD740); // Default Sign Up Color
 
   @override
   Widget build(BuildContext context) {
@@ -223,20 +231,44 @@ class SignupScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 24),
                       Center(
-                        child: RichText(
-                          text: const TextSpan(
-                            text: 'Already have an account? ',
-                            style: TextStyle(color: Colors.black),
-                            children: [
-                              TextSpan(
-                                text: 'Log In',
-                                style: TextStyle(
-                                  color: Color(0xFFFFD740),
-                                  decoration: TextDecoration.underline,
-                                  decorationColor: Color(0xFFFFD740),
-                                ),
+                        child: MouseRegion(
+                          onEnter: (_) => setState(() =>
+                              _signUpColor = Colors.green), // Hover Effect
+                          onExit: (_) => setState(() =>
+                              _signUpColor = Color(0xFFFFD740)), // Normal Color
+
+                          child: GestureDetector(
+                            onTap: () {
+                              setState(() => _signUpColor =
+                                  Colors.red); // Click par Red ho jaye
+
+                              Future.delayed(Duration(milliseconds: 200), () {
+                                // Delay ke baad navigation
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const SignInScreen()),
+                                );
+                              });
+                            },
+                            child: RichText(
+                              text: TextSpan(
+                                text: 'Already have an account? ',
+                                style: TextStyle(color: Colors.black),
+                                children: [
+                                  TextSpan(
+                                    text: 'Sign In',
+                                    style: TextStyle(
+                                      color: _signUpColor,
+                                      decoration: TextDecoration.underline,
+                                      decorationColor: _signUpColor,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ],
+                            ),
                           ),
                         ),
                       ),

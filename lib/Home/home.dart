@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:wow_music/SignUpSection/signUpScreen.dart';
 
-class GetStartedScreen extends StatelessWidget {
+class GetStartedScreen extends StatefulWidget {
+  const GetStartedScreen({super.key});
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _GetStartedScreenState createState() => _GetStartedScreenState();
+}
+
+class _GetStartedScreenState extends State<GetStartedScreen> {
   @override
   Widget build(BuildContext context) {
     // Get screen dimensions
     final size = MediaQuery.of(context).size;
+    Color _signUpColor = const Color(0xFFFFD740); // Default Sign Up Color
 
     return Scaffold(
       backgroundColor: Colors.white, // Background color
@@ -29,7 +39,13 @@ class GetStartedScreen extends StatelessWidget {
                   height: size.height *
                       0.08), // Spacing adjusted for responsiveness
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SignupScreen()),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor:
                       const Color(0xFFFFD640), // Yellow color for button
@@ -49,20 +65,43 @@ class GetStartedScreen extends StatelessWidget {
               ),
               SizedBox(height: size.height * 0.03), // Spacing for the text link
               Center(
-                child: RichText(
-                  text: const TextSpan(
-                    text: 'Don"t have an account? ',
-                    style: TextStyle(color: Colors.black),
-                    children: [
-                      TextSpan(
-                        text: 'Sign Up',
-                        style: TextStyle(
-                          color: Color(0xFFFFD740),
-                          decoration: TextDecoration.underline,
-                          decorationColor: Color(0xFFFFD740),
-                        ),
+                child: MouseRegion(
+                  onEnter: (_) => setState(
+                      () => _signUpColor = Colors.green), // Hover Effect
+                  onExit: (_) => setState(() =>
+                      _signUpColor = const Color(0xFFFFD740)), // Normal Color
+
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() =>
+                          _signUpColor = Colors.red); // Click par Red ho jaye
+
+                      Future.delayed(const Duration(milliseconds: 200), () {
+                        // Delay ke baad navigation
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignupScreen()),
+                        );
+                      });
+                    },
+                    child: RichText(
+                      text: TextSpan(
+                        text: 'Don\'t have an account? ',
+                        style: const TextStyle(color: Colors.black),
+                        children: [
+                          TextSpan(
+                            text: 'Sign Up',
+                            style: TextStyle(
+                              color: _signUpColor,
+                              decoration: TextDecoration.underline,
+                              decorationColor: _signUpColor,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ),
               ),

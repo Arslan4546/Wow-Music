@@ -32,8 +32,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   ];
 
   void continueMethod() {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => GetStartedScreen()));
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const GetStartedScreen()));
   }
 
   int currentPage = 0;
