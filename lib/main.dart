@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wow_music/Splash_Screen/splash.dart';
+import 'package:wow_music/SplashScreenView/splashScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
     );

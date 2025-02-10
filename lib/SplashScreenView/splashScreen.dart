@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:wow_music/OnBoradingView/on_borading_view.dart';
+import 'package:wow_music/OnBoardingView/on_borading_view.dart';
 
 class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,8 +12,8 @@ class SplashScreen extends StatelessWidget {
       body: Center(
         child: Lottie.asset(
           'assets/lottie/splash_anim.json',
-          width: 200,
-          height: 200,
+          width: 350,
+          height: 350,
           fit: BoxFit.fill,
           onLoaded: (composition) {
             Future.delayed(composition.duration, () {
