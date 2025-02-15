@@ -6,7 +6,7 @@ import 'package:wow_music/UserEnterSectionView/UserEnterComponents/proceed_butto
 import 'package:wow_music/UserEnterSectionView/UserEnterComponents/lottie_animation.dart';
 import 'package:wow_music/UserEnterSectionView/UserEnterComponents/main_background_sheet.dart';
 import 'package:wow_music/UserEnterSectionView/signUpScreen.dart';
-import 'package:wow_music/demo.dart'; // Import the DemoScreen
+import 'package:wow_music/MainMusic.dart'; // Import the DemoScreen
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -45,7 +45,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const DemoScreen()),
+                          builder: (context) => MainMusicScreen()),
                     );
                   },
                 ),

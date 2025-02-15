@@ -6,7 +6,7 @@ import 'package:wow_music/UserEnterSectionView/UserEnterComponents/SocialIconBut
 import 'package:wow_music/UserEnterSectionView/UserEnterComponents/lottie_animation.dart';
 import 'package:wow_music/UserEnterSectionView/UserEnterComponents/main_background_sheet.dart';
 import 'package:wow_music/UserEnterSectionView/SignInScreen.dart';
-import 'package:wow_music/demo.dart'; // Import the DemoScreen
+import 'package:wow_music/MainMusic.dart'; // Import the DemoScreen
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -49,7 +49,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const DemoScreen()),
+                          builder: (context) => MainMusicScreen()),
                     );
                   },
                 ),
